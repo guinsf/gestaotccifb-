@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a href="/#/principal"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Instituto_Federal_de_Bras%C3%ADlia_-_Marca_Vertical_2015.svg" width="120" height="120"></a>
+    <a class="navbar-brand" href="/#/profs">Área cadastro de Professores</a>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="/#/principal">Alunos <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/#/profs">Professores</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/#/relatorioTCC">Relatórios</a>
+          </li>
+      </ul>
+      
+     
+    </div>
+  </nav>
+  </html>
+
+<div class="page-header text-center">
+	<h1>{{prof.titulo}}</h1>
+</div>
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nome Professor</label>
+			<input name="titulo" class="form-control" ng-model="prof.titulo" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
+				class="form-control alert-danger">
+				Nome obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 20 caracteres!
+			</span>
+		<div class="form-group">
+			<label>Link curriculo lattes</label>
+			<input name="curriculo" class="form-control" ng-model="prof.curriculo">  
+
+			<span ng-show = "formulario.$submitted">
+			</span>
+		</div>
+		<div class="form-group">
+			<label>E-mail</label>
+			<input name="email" class="form-control" ng-model="prof.email" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.email.$error.required"
+				class="form-control alert-danger">
+				E-mail obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.email.$error.maxlength" 
+				class="form-control alert-danger">
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Telefone</label>
+			<input name="telefone" class="form-control" ng-model="prof.telefone" required>  
+
+			<span ng-show = "formulario.$submitted && formulario.telefone.$error.required"
+				class="form-control alert-danger">
+				Telefone obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.telefone.$error.maxlength" 
+				class="form-control alert-danger">
+			</span>
+		</div>
+		<div class="form-group">
+			<label>URL prof Estudante</label>
+			<input name="url" class="form-control" ng-model="prof.url" required>
+
+			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+				class="form-control alert-danger">
+				URL obrigatória
+			</span> 
+		</div>
+		<div class="form-group">
+			<label>Descrição do trabalho</label>
+			<textarea name="descricao" class="form-control" ng-model="prof.descricao">
+			</textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Área</label>
+			<select name="grupo" ng-model="prof.grupo" class="form-control" 
+					required ng-controller="GruposController" 
+					ng-options="grupo._id as (grupo.nome | uppercase) for grupo in grupos">
+				<option value="">Escolha uma área</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.grupo.$error.required" 
+				class="form-control alert-danger">
+				Grupo obrigatório
+			</span>
+		</div>
+
+		<button type="submit" class="btn btn-primary" ng-disabled="formulario.$invalid">
+			Salvar
+		</button>
+		<a href="/#/profs" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+	<div class="col-md-6">
+		<minha-prof url="{{prof.url}}" titulo="{{prof.titulo}}"></minha-prof>
+	</div>
+</form>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+<footer class="bg-light text-dark">
+    <div class="container-fluid py-3">
+    <div class="row">
+      <div class="col-4">
+        <ul class="nav flex-column">
+          <li class="nav-link"><a href="/#/profs">Inicio</a></li>
+		  <li class="nav-link"><a href="https://www.ifb.edu.br/contato" target="_blank">Contato</a></li>
+          <li class="nav-link"><a href="/#/login">Deslogar</a></li>
+        </ul>
+      </div>
+      <div class="col-8">
+        <p>
+           <h5>Redes sociais oficiais do Instituto Federal de Brasília</h5>
+        </p>
+        <ul class="nav">
+          <li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
+          <li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
+          <li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
+          <li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div class="text-center" style="background-color: rgba(224, 230, 240, 0.858); padding: 20px;" >
+      &copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília
+    </div>
+  </footer>
+</body>          
+  
+</html>	
