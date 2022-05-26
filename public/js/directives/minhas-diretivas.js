@@ -40,4 +40,20 @@ angular.module('minhasDiretivas', [])
         ddo.template = '<button class="btn btn-danger btn-block" ng-click="acao()">{{nome}}</button>';
 
         return ddo;
-    });
+    })
+    .directive('meuRelatorios', function() {
+
+        var ddo = {};
+
+		ddo.restrict = "AE";
+        ddo.transclude = true;
+
+
+		ddo.scope = {
+            titulo: '@'
+        };
+
+        ddo.templateUrl = '/js/directives/meu-r.html';
+
+		return ddo;
+	});
