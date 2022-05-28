@@ -6,13 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" href="/public/css/style.css">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+
   <a href="/#/principal"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Instituto_Federal_de_Bras%C3%ADlia_-_Marca_Vertical_2015.svg" width="120" height="120"></a>
   <a class="navbar-brand" href="/#/relatorio">Área Geração de Relatórios</a>
+
   <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
@@ -25,70 +28,193 @@
           <a class="nav-link" href="/#/relatorioTCC">Relatórios</a>
         </li>
     </ul>
-    
-   
   </div>
 </nav>
-</html>
+</head>
 
-<h3>Exibir todos os temas TCCs</h3>
+<body>
 
-<div class="card" style="margin-bottom: 10em;">
-  <div class="card-body">
-      <table class="table">
-          <thead class="thead-dark">
-              <tr>
-                  <th scope="col">Data</th>
-                  <th scope="col">Aluno</th>
-                  <th scope="col">Orientador</th>
-                  <th scope="col">Tema</th>
-                  <th scope="col">Detalhes</th>
-                  <th scope="col">Download</th>
-                  <th scope="col">Editar</th>
-                  <th scope="col">Excluir</th>
-              </tr>
-          </thead>
+  <h3>Exibir todos os temas TCCs</h3>
 
-          
-          <tbody>
-             
-              
-              <tr>
-                  
-                <meu-relatorios  ng-repeat="foto in fotos" titulo="{{foto.titulo}}"></meu-relatorios>
-                  
-              </tr>
-             
-           </tbody>
-      </table>
+  <div id="resp-table">
+    <div id="resp-table-caption">
+      <div id="resp-table-header">
+        <div class="table-header-cell">
+          Header 1
+          </div>
+          <div class="table-header-cell">
+          Header 2
+          </div>
+          <div class="table-header-cell">
+          Header 3
+          </div>
+      </div>
+      <div id="resp-table-body">
+        <meu-relatorios ng-repeat="foto in fotos" titulo="{{foto.titulo}}" nome="{{foto.nome}}" orientador="{{foto.orientador}}"></meu-relatorios>  
+      </div>
+      <!-- <div id="resp-table-body">
+        
+        <div class="resp-table-row">
+          <div class="table-body-cell">
+            Guilherme
+          </div>
+          <div class="table-body-cell">
+            Osmar
+          </div>
+          <div class="table-body-cell">
+            API
+          </div>
+        </div>
+        <div class="resp-table-row">
+          <div class="table-body-cell">
+            Guilherme
+          </div>
+          <div class="table-body-cell">
+            Osmar
+          </div>
+          <div class="table-body-cell">
+            API
+          </div>
+        </div>
+      </div> -->
+    </div>
   </div>
-</div>
-<footer class="bg-light text-dark">
-    <div class="container-fluid py-3">
-    <div class="row">
-      <div class="col-4">
-        <ul class="nav flex-column">
-          <li class="nav-link"><a href="/#/profs" >Inicio</a></li>
-          <li class="nav-link"><a href="https://www.ifb.edu.br/contato" target="_blank">Contato</a></li>
-          <li class="nav-link"><a href="/#/login">Deslogar</a></li>
-        </ul>
-      </div>
-      <div class="col-8">
-        <p>
-           <h5>SGATCC - Canais oficiais Instituto Federal de Brasília</h5>
-        </p>
-        <ul class="nav">
-          <li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
-          <li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
-          <li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
-          <li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
-        </ul>
+
+<!-- 
+  <div class="relatorioTable">
+    <div class="relatorioThead">
+      <div class="relatorioTr">
+        <div class="relatorioTd">Aluno</div>
+        <div class="relatorioTd">Orientador</div>
+        <div class="relatorioTd">Tema</div>
       </div>
     </div>
+    <div class="relatorioTbody">
+      <meu-relatorios ng-repeat="foto in fotos" titulo="{{foto.titulo}}" nome="{{foto.nome}}" orientador="{{foto.orientador}}"></meu-relatorios>  
     </div>
-    <div class="text-center" style="background-color: rgba(224, 230, 240, 0.858); padding: 20px;" >
-      &copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília
+  </div> -->
+<!-- <div class="card" style="margin-bottom: 10em;">
+    <div class="card-body">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Aluno</th>
+                    <th scope="col">Orientador</th>
+                    <th scope="col">Tema</th>
+                    <th scope="col">Detalhes</th>
+                    <th scope="col">Download</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+
+            
+            <tbody>
+             <tr><td>oi</td></tr>
+              <meu-relatorios ng-repeat="foto in fotos" titulo="{{foto.titulo}}"></meu-relatorios>
+                            
+            </tbody>
+        </table>
     </div>
+</div> -->
+
+<!-- 
+  <div class="table">
+    <div class="grid-container">
+      <div class="grid-item">Nome</div>
+      <div class="grid-item">Tema</div>
+      <div class="grid-item">Aluno</div>  
+    </div>
+    <meu-relatorios ng-repeat="foto in fotos" titulo="{{foto.titulo}}" nome="{{foto.nome}}" orientador="{{foto.orientador}}"></meu-relatorios>   
+  </div> -->
+
+  <!-- <div class="grid">
+    <span>
+        <strong>Id</strong>
+    </span>
+    <span>
+        <strong>FullName</strong>
+    </span>
+    <span>
+        <strong>Country</strong>
+    </span>
+    <span>
+        <strong>Created at</strong>
+    </span>
+    <span>
+        <strong>Email</strong>
+    </span>
+    <span>0</span>
+    <span>AaronKris</span>
+    <span>Philippines</span>
+    <span>1991-05-23T14:19:51</span>
+    <span>Ophelia_Mitchell@karley.name</span>
+    <span>1</span>
+    <span>SimeonMcLaughlin</span>
+    <span>Singapore</span>
+    <span>2012-03-07T00:08:36</span>
+    <span>Sabrina_Barton@torey.net</span>
+    <span>2</span>
+    <span>Kelsie Shanahan</span>
+    <span>Brazil</span>
+    <span>1985-03-10T20:13:04</span>
+    <span>Karianne@salvatore.biz</span>
+    <meu-relatorios ng-repeat="foto in fotos" titulo="{{foto.titulo}}" nome="{{foto.nome}}" orientador="{{foto.orientador}}"></meu-relatorios>
+</div> -->
+
+<!-- <div class="card" style="margin-bottom: 10em;">
+    <div class="card-body">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Data</th>
+                    <th scope="col">Aluno</th>
+                    <th scope="col">Orientador</th>
+                    <th scope="col">Tema</th>
+                    <th scope="col">Detalhes</th>
+                    <th scope="col">Download</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+
+            
+            <tbody>
+             <tr><td>oi</td></tr>
+              <meu-relatorios ng-repeat="foto in fotos" titulo="{{foto.titulo}}"></meu-relatorios>
+                            
+            </tbody>
+        </table>
+    </div>
+</div> -->
+
+  <footer class="bg-light text-dark">
+      <div class="container-fluid py-3">
+      <div class="row">
+        <div class="col-4">
+          <ul class="nav flex-column">
+            <li class="nav-link"><a href="/#/profs" >Inicio</a></li>
+            <li class="nav-link"><a href="https://www.ifb.edu.br/contato" target="_blank">Contato</a></li>
+            <li class="nav-link"><a href="/#/login">Deslogar</a></li>
+          </ul>
+        </div>
+        <div class="col-8">
+          <p>
+            <h5>SGATCC - Canais oficiais Instituto Federal de Brasília</h5>
+          </p>
+          <ul class="nav">
+            <li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
+            <li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
+            <li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
+            <li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+      <div class="text-center" style="background-color: rgba(224, 230, 240, 0.858); padding: 20px;" >
+        &copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília
+      </div>
   </footer>
 </body>          
   

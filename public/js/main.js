@@ -42,7 +42,7 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
 
 		$routeProvider.when('/relatorioTCC', {
             templateUrl: 'partials/relatorio.html',
-            controller: 'RelatorioController'
+            controller: 'FotosController'
         });
 
 		

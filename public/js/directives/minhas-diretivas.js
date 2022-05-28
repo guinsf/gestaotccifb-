@@ -48,9 +48,10 @@ angular.module('minhasDiretivas', [])
 		ddo.restrict = "AE";
         ddo.transclude = true;
 
-
 		ddo.scope = {
-            titulo: '@'
+            titulo: '@',
+            nome:'@',
+            orientador:'@'
         };
 
         ddo.templateUrl = '/js/directives/meu-r.html';
