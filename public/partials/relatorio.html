@@ -39,19 +39,30 @@
   <div id="resp-table">
     <div id="resp-table-caption">
       <div id="resp-table-header">
-        <div class="table-header-cell">
-          Header 1
+        <div class="panel-title text-center">
+          Titulo Trabalho
           </div>
-          <div class="table-header-cell">
-          Header 2
+          <div class="table-header-cell 1">
+          Nome
           </div>
-          <div class="table-header-cell">
+          <div class="table-header-cell 2">
           Header 3
           </div>
       </div>
       <div id="resp-table-body">
-        <meu-relatorios ng-repeat="foto in fotos" titulo="{{foto.titulo}}" nome="{{foto.nome}}" orientador="{{foto.orientador}}"></meu-relatorios>  
+        <div class="panel-title text-center">
+        <meu-relatorios ng-repeat="foto in fotos"titulo="{{foto.titulo}}"></meu-relatorios>
       </div>
+        <div class="table-header-cell 1">
+            <meu-relatorios ng-repeat="foto in fotos"nome="{{foto.nome}}"></meu-relatorios>
+          </div>
+        </div>
+        <div class="table-header-cell 2">
+          <meu-relatorios ng-repeat="foto in fotos"email="{{foto.email}}"></meu-relatorios>
+        </div>
+      </div>
+
+      
       <!-- <div id="resp-table-body">
         
         <div class="resp-table-row">
