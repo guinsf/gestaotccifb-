@@ -51,7 +51,9 @@ angular.module('minhasDiretivas', [])
 		ddo.scope = {
             titulo: '@',
             nome:'@',
-            orientador:'@'
+            orientador:'@',
+            email:'@',
+            telefone:'@'
         };
 
         ddo.templateUrl = '/js/directives/meu-r.html';
