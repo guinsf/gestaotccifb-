@@ -37,20 +37,22 @@
   <h3>Exibir todos os temas TCCs</h3>
 
   <div id="resp-table">
-    <div id="resp-table-caption">
       <div id="resp-table-header">
-        <div class="panel-title text-center">
+        <div class="table-header-cell 0 text-center">
           Titulo Trabalho
           </div>
-          <div class="table-header-cell 1">
+          <div class="table-header-cell 1 text-center">
           Nome
           </div>
-          <div class="table-header-cell 2">
+          <div class="table-header-cell 2 text-center">
           E-mail
+          </div>
+          <div class="table-header-cell 3 text-center">
+          Telefone
           </div>
       </div>
       <div id="resp-table-body">
-        <div class="panel-title text-center">
+        <div class="table-header-cell 0 text-center">
         <meu-relatorios ng-repeat="foto in fotos"titulo="{{foto.titulo}}"></meu-relatorios>
       </div>
         <div class="table-header-cell 1">
@@ -59,6 +61,9 @@
         <div class="table-header-cell 2">
           <meu-relatorios ng-repeat="foto in fotos"email="{{foto.email}}"></meu-relatorios>
           </div>
+          <div class="table-header-cell 3">
+            <meu-relatorios ng-repeat="foto in fotos"telefone="{{foto.telefone}}"></meu-relatorios>
+            </div>
         </div>
       </div>
     </div>
