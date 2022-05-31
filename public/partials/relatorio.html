@@ -34,15 +34,14 @@
 
 <body>
 
-  <h3>Exibir todos os temas TCCs</h3>
-
+  <h3>Exibir todas ideias TCCs</h3>
   <div id="resp-table">
       <div id="resp-table-header">
         <div class="table-header-cell 0 text-center">
           Titulo Trabalho
           </div>
           <div class="table-header-cell 1 text-center">
-          Nome
+          Nome Aluno
           </div>
           <div class="table-header-cell 2 text-center">
           E-mail
@@ -50,6 +49,9 @@
           <div class="table-header-cell 3 text-center">
           Telefone
           </div>
+          <div class="table-header-cell 3 text-center">
+            Orientador
+            </div>
       </div>
       <div id="resp-table-body">
         <div class="table-header-cell">
@@ -64,6 +66,9 @@
           <div class="table-header-cell">
             <meu-relatorios ng-repeat="foto in fotos"telefone="{{foto.telefone}}"></meu-relatorios>
             </div>
+            <div class="table-header-cell">
+              <meu-relatorios ng-repeat="foto in fotos"orientador="{{foto.orientador}}"></meu-relatorios>
+              </div>
         </div>
       </div>
     </div>

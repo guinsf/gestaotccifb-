@@ -53,7 +53,8 @@ angular.module('minhasDiretivas', [])
             nome:'@',
             orientador:'@',
             email:'@',
-            telefone:'@'
+            telefone:'@',
+            descricao:'@'
         };
 
         ddo.templateUrl = '/js/directives/meu-r.html';
