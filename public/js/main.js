@@ -34,7 +34,6 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
 			controller: 'ProfController'
 		});
 
-
 		$routeProvider.when('/login', {
             templateUrl: 'partials/login.html',
             controller: 'LoginController'
@@ -43,6 +42,14 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
 		$routeProvider.when('/relatorioTCC', {
             templateUrl: 'partials/relatorio.html',
             controller: 'FotosController'
+        });
+		$routeProvider.when('/principalExt', {
+            templateUrl: 'partials/principalext.html',
+            controller: 'FotosController'
+        });
+		$routeProvider.when('/principalExtprofs', {
+            templateUrl: 'partials/PrincipalProfExt.html',
+            controller: 'ProfController'
         });
 
 		
