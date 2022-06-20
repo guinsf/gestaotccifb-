@@ -19,6 +19,11 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
 			controller: 'FotoController'
 		});
 
+		$routeProvider.when('/fotos/visualizar/:fotoId', {
+			templateUrl: 'partials/fotoExt.html',
+			controller: 'FotoController'
+		});
+
 		$routeProvider.when('/profs', {
 			templateUrl: 'partials/PrincipalProfs.html',
 			controller: 'ProfsController'
@@ -34,6 +39,11 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
 			controller: 'ProfController'
 		});
 
+		$routeProvider.when('/profs/visualizar/:profId', {
+			templateUrl: 'partials/profExt.html',
+			controller: 'ProfController'
+		});
+
 		$routeProvider.when('/login', {
             templateUrl: 'partials/login.html',
             controller: 'LoginController'
@@ -43,15 +53,20 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
             templateUrl: 'partials/relatorio.html',
             controller: 'FotosController'
         });
-		$routeProvider.when('/principalExt', {
-            templateUrl: 'partials/principalext.html',
-            controller: 'FotosController'
-        });
-		$routeProvider.when('/principalExtprofs', {
-            templateUrl: 'partials/PrincipalProfExt.html',
-            controller: 'ProfController'
-        });
 
+		$routeProvider.when('/principalExt', {
+			templateUrl: 'partials/PrincipalExt.html',
+			controller: 'FotosController'
+		});
+
+		$routeProvider.when('/profext', {
+			templateUrl: 'partials/principalProfExt.html',
+			controller: 'ProfsController'
+		});
+		$routeProvider.when('/relatorioext', {
+			templateUrl: 'partials/relatorioExt.html',
+			controller: 'FotosController'
+		});
 		
 		$routeProvider.otherwise({redirectTo: '/fotos'});
 

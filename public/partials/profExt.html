@@ -210,12 +210,12 @@
     <div class="spacer"></div>
 
     <input type="checkbox" id="check">
-    <label for="check" id="icone"><img src="https://i.imgur.com/RWHvwPE.png"/></label>
-    <nav class="cabeçalho_menu">
-      <a class="cabeçalho_menu_item" href="/#/login">Área Login</a>
-      <a class="cabeçalho_menu_item" href="/#/principalExt" >Alunos</a>
-      <a class="cabeçalho_menu_item" href="/#/profext">Professores</a>
-      <a class="cabeçalho_menu_item" href="/#/relatorioext">Relatórios</a>
+      <label for="check" id="icone"><img src="https://i.imgur.com/RWHvwPE.png"/></label>
+      <nav class="cabeçalho_menu">
+        <a class="cabeçalho_menu_item" href="/#/login">Área Login</a>
+        <a class="cabeçalho_menu_item" href="/#/principalExt" >Alunos</a>
+        <a class="cabeçalho_menu_item" href="/#/profext">Professores</a>
+        <a class="cabeçalho_menu_item" href="/#/relatorioext">Relatórios</a>
 
       <a class="cabeçalho_menu_item_home" href="/#/principalExt"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="38px" height="35px"><path d="M12,2.1L1,12h3v9h7v-6h2v6h7v-9h3L12,2.1z M18,19h-3v-6H9v6H6v-8.8l6-5.4l6,5.4V19z"/></svg></a>
   
@@ -240,56 +240,116 @@
     </button>
    
   </nav>
-  
 
-<p ng-show="mensagem.length" class="alert alert-info">
-	{{mensagem}}
-</p>
 
-<div class="row">
-	<div class="col-md-12">
-		<form>
-			<div class="input-group">
-				<span class="input-group-btn">
-				</span>
-				<input class="form-control" placeholder="Filtrar por: Nome, trabalho, e-mail do aluno ou áreas de interesse" 
-					ng-model="filtro" ng-model-options="{ debounce: 500 }">
-		</form>
-	</div> 
-</div> 
-
-<div class="row">
-    <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}} ">
-        <minha-foto url="{{foto.url}}" alt="{{foto.titulo}}" style="background-color:aqua"></minha-foto>
-
-		<a class="btn btn-primary btn-block" href="/#/fotos/visualizar/{{foto._id}}">
-			Visualizar
-		</a>
-    </meu-painel>
+<div class="page-header text-center">
+	<h1>{{prof.titulo}}</h1>
 </div>
-  
-  <footer class="bg-light text-dark">
-   
-   
+
+<p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+
+<form novalidate name="formulario" class="row" ng-submit="submeter()">
+	<div class="col-md-6">
+		<div class="form-group">
+			<label>Nome Professor</label>
+			<input name="titulo" class="form-control" ng-model="prof.titulo" disabled>  
+
+			<span ng-show = "formulario.$submitted && formulario.titulo.$error.required"
+				class="form-control alert-danger">
+				Nome obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.titulo.$error.maxlength" 
+				class="form-control alert-danger">
+				No máximo 20 caracteres!
+			</span>
+		<div class="form-group">
+			<label>Link curriculo lattes</label>
+			<input name="curriculo" class="form-control" ng-model="prof.curriculo"disabled>  
+
+			<span ng-show = "formulario.$submitted">
+			</span>
+		</div>
+		<div class="form-group">
+			<label>E-mail</label>
+			<input name="email" class="form-control" ng-model="prof.email" disabled>  
+
+			<span ng-show = "formulario.$submitted && formulario.email.$error.required"
+				class="form-control alert-danger">
+				E-mail obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.email.$error.maxlength" 
+				class="form-control alert-danger">
+			</span>
+		</div>
+		<div class="form-group">
+			<label>Telefone</label>
+			<input name="telefone" class="form-control" ng-model="prof.telefone" disabled>  
+
+			<span ng-show = "formulario.$submitted && formulario.telefone.$error.required"
+				class="form-control alert-danger">
+				Telefone obrigatório
+			</span>
+			<span ng-show="formulario.$submitted && formulario.telefone.$error.maxlength" 
+				class="form-control alert-danger">
+			</span>
+		</div>
+		<div class="form-group">
+			<label>URL prof Estudante</label>
+			<input name="url" class="form-control" ng-model="prof.url" disabled>
+
+			<span ng-show = "formulario.$submitted && formulario.url.$error.required" 
+				class="form-control alert-danger">
+				URL obrigatória
+			</span> 
+		</div>
+		<div class="form-group">
+			<label>Descrição do trabalho</label>
+			<textarea name="descricao" class="form-control" ng-model="prof.descricao"disabled>
+			</textarea>
+		</div>
+
+		<div class="form-group">
+			<label>Área</label>
+			<select name="grupo" ng-model="prof.grupo" class="form-control" 
+					required ng-controller="GruposController" 
+					ng-options="grupo._id as (grupo.nome | uppercase) for grupo in grupos"disabled>
+				<option value="">Escolha uma área</option>
+			</select>
+			<span ng-show="formulario.$submitted && formulario.grupo.$error.required" 
+				class="form-control alert-danger">
+				Grupo obrigatório
+			</span>
+		</div>
+		<a href="/#/profext" class="btn btn-primary">Voltar</a>
+		<hr>
+	</div>
+	<div class="col-md-6">
+		<minha-prof url="{{prof.url}}" titulo="{{prof.titulo}}"></minha-prof>
+	</div>
+</form>
+<footer class="bg-light text-dark">
     <div class="container-fluid py-3">
     <div class="row">
-
+      <div class="col-4">
+      
+      </div>
+      <div class="col-8">
+        <p>
+           <h5>SGATCC - Canais oficiais Instituto Federal de Brasília</h5>
+        </p>
+        <ul class="nav">
+          <li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
+          <li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
+          <li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
+          <li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
+        </ul>
+      </div>
     </div>
-
-
     </div>
-    <div class="text-center" style="padding: 0px;color:rgb(21, 59, 12); display: flex; flex-direction: column; align-items: center;" >
-      <h5 style="margin-left: 15px; margin-top: 20px; margin-bottom: -5px; font-weight: 600;">SGATCC - Canais oficiais Instituto Federal de Brasília</h5>
-      <ul class="nav">
-        <li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
-        <li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
-        <li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
-        <li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
-      </ul>
-      <h5 style="margin-left: 15px">&copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília</h5> 
+    <div class="text-center" style="background-color: rgba(224, 230, 240, 0.858); padding: 20px;" >
+      &copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília
     </div>
   </footer>
 </body>          
   
-</html>
-
+</html>	

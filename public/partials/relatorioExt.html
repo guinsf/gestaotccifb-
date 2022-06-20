@@ -6,10 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-
+<link rel="stylesheet" href="/public/css/style.css">
 <style>
-  .toolbar {
+   .toolbar {
         position: absolute;
         top: 0;
         left: 0;
@@ -173,36 +172,13 @@
   .fa-whatsapp:hover {
     color: rgb(9, 110, 40);
   }
-
-
-  .row {
-    
+  #resp-table-header {
+    background-color:rgb(29, 126, 50) ;
+    color: aliceblue;
   }
-
-  .col-4 {
-    
-  }
-
-  .col-md-2 {
-   
-  }
-
-  .painel-animado {
-    
-  }
-
-  .btn-block {
-    
-  }
-
-
 </style>
-</head>
 
-<body>
-
-
-    <!-- Toolbar -->
+  <!-- Toolbar -->
   <div class="toolbar" role="banner">
     
     <!---->
@@ -217,16 +193,15 @@
       <input type="checkbox" id="check">
       <label for="check" id="icone"><img src="https://i.imgur.com/RWHvwPE.png"/></label>
       <nav class="cabeçalho_menu">
-        <a class="cabeçalho_menu_item" href="/#/principal">Área cadastro de Alunos</a>
-        <a class="cabeçalho_menu_item" href="/#/principal" >Alunos</a>
-        <a class="cabeçalho_menu_item" href="/#/profs">Professores</a>
-        <a class="cabeçalho_menu_item" href="/#/relatorioTCC">Relatórios</a>
+        <a class="cabeçalho_menu_item" href="/#/login">Área Login</a>
+        <a class="cabeçalho_menu_item" href="/#/principalExt" >Alunos</a>
+        <a class="cabeçalho_menu_item" href="/#/profext">Professores</a>
+        <a class="cabeçalho_menu_item" href="/#/relatorioext">Relatórios</a>
   
-        <a class="cabeçalho_menu_item_home" href="/#/principal"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="38px" height="35px"><path d="M12,2.1L1,12h3v9h7v-6h2v6h7v-9h3L12,2.1z M18,19h-3v-6H9v6H6v-8.8l6-5.4l6,5.4V19z"/></svg></a>
+        <a class="cabeçalho_menu_item_home" href="/#/principalExt"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="38px" height="35px"><path d="M12,2.1L1,12h3v9h7v-6h2v6h7v-9h3L12,2.1z M18,19h-3v-6H9v6H6v-8.8l6-5.4l6,5.4V19z"/></svg></a>
         <a class="item_exit" href="/#/login"></a>
   
-        <a class="cabeçalho_menu_item_exit" href="/#/login"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
-          <desc>Created with Fabric.js 1.7.22</desc>
+        
           <defs>
           </defs>
           <g transform="translate(128 128) scale(0.72 0.72)" style="">
@@ -237,7 +212,7 @@
           </g>
           </svg></a>
        
-   
+      
     </nav>
     
   </div>
@@ -247,43 +222,56 @@
         <span class="navbar-toggler-icon"></span>
       </button>
      
+   
     </nav>
+</head>
 
-<p ng-show="mensagem.length" class="alert alert-info">
-	{{mensagem}}
-</p>
+<body>
 
-<div class="row">
-	<div class="col-md-12">
-		<form>
-			<div class="input-group">
-				<span class="input-group-btn">
-					<a href="/#/profs/new" class="btn btn-primary" type="button">
-						Cadastrar-se como professor
-					</a>
-				</span>
-				<input class="form-control" placeholder="Filtrar por: Nome do professor, e-mail ou áreas de interesse" 
-					ng-model="filtro" ng-model-options="{ debounce: 500 }">
-		</form>
-	</div> <!-- fim col-md-12 -->
-</div> <!-- fim row -->
-
-<div class="row">
-    <meu-painel class="col-md-2 painel-animado" ng-repeat="prof in profs | filter: filtro" titulo="{{prof.titulo}}">
-        <minha-foto url="{{prof.url}}" alt="{{prof.titulo}}"></minha-foto>
-
-		<a class="btn btn-primary btn-block" href="/#/profs/edit/{{prof._id}}">
-			Editar
-		</a>
-		<meu-botao-perigo nome="Remover" acao="remover(prof)">Remover</meu-botao-perigo>
-    </meu-painel>
-</div>
-
-
+  <!--<h3 style="text-align: center">Exibir todas ideias TCCs</h3>-->
+  <div id="resp-table">
+      <div id="resp-table-header">
+        <div class="table-header-cell 0 text-center">
+          Titulo Trabalho
+          </div>
+          <div class="table-header-cell 1 text-center">
+          Nome Aluno
+          </div>
+          <div class="table-header-cell 2 text-center">
+          E-mail
+          </div>
+          <div class="table-header-cell 3 text-center">
+          Telefone
+          </div>
+          <div class="table-header-cell 3 text-center">
+            Orientador
+            </div>
+      </div>
+      <div id="resp-table-body">
+        <div class="table-header-cell">
+        <meu-relatorios ng-repeat="foto in fotos"titulo="{{foto.titulo}}"></meu-relatorios>
+      </div>
+        <div class="table-header-cell">
+            <meu-relatorios ng-repeat="foto in fotos"nome="{{foto.nome}}"></meu-relatorios>
+          </div>
+        <div class="table-header-cell">
+          <meu-relatorios ng-repeat="foto in fotos"email="{{foto.email}}"></meu-relatorios>
+          </div>
+          <div class="table-header-cell">
+            <meu-relatorios ng-repeat="foto in fotos"telefone="{{foto.telefone}}"></meu-relatorios>
+            </div>
+            <div class="table-header-cell">
+              <meu-relatorios ng-repeat="foto in fotos"orientador="{{foto.orientador}}"></meu-relatorios>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
 <footer class="bg-light text-dark">   
   <div class="container-fluid py-3">
   <div class="row">
-  
+ 
   </div>
 
 
@@ -301,4 +289,4 @@
 </footer>
 </body>          
   
-</html>
+</html>	
