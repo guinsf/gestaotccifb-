@@ -194,6 +194,18 @@
     
   }
 
+  .col-md-7 {
+  display: inline;
+  width: 45%;
+  float: right;
+ }
+
+ .col-md-6 {
+  display: inline;
+  width: 100%;
+  float: left;
+ }
+  
   
   </style>
 
@@ -244,6 +256,9 @@
 
 <div class="page-header text-center">
 	<h1>{{prof.titulo}}</h1>
+</div>
+<div class="col-md-7">
+  <minha-foto url="{{prof.url}}" titulo="{{prof.titulo}}"></minha-foto >
 </div>
 
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
@@ -327,29 +342,25 @@
 		<minha-prof url="{{prof.url}}" titulo="{{prof.titulo}}"></minha-prof>
 	</div>
 </form>
-<footer class="bg-light text-dark">
-    <div class="container-fluid py-3">
-    <div class="row">
-      <div class="col-4">
-      
-      </div>
-      <div class="col-8">
-        <p>
-           <h5>SGATCC - Canais oficiais Instituto Federal de Brasília</h5>
-        </p>
-        <ul class="nav">
-          <li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
-          <li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
-          <li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
-          <li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
-        </ul>
-      </div>
-    </div>
-    </div>
-    <div class="text-center" style="background-color: rgba(224, 230, 240, 0.858); padding: 20px;" >
-      &copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília
-    </div>
-  </footer>
-</body>          
-  
-</html>	
+
+<footer style="margin-bottom: 250px;">
+	
+
+	<footer class="bg-light text-dark">   
+		<div class="container-fluid py-3">
+		<div class="row">
+		
+     
+		<div class="text-center" style="padding: 0px;color:rgb(21, 59, 12); display: flex; flex-direction: column; align-items: center;" >
+		  <h5 style="margin-left: 15px; margin-top: 20px; margin-bottom: -5px; font-weight: 600;">SGATCC - Canais oficiais Instituto Federal de Brasília</h5>
+		  <ul class="nav">
+			<li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
+			<li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
+			<li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
+			<li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
+		  </ul>
+		  <h5 style="margin-left: 15px">&copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília</h5> 
+		</div>
+	  </footer>
+	  </body>          
+	  </html>

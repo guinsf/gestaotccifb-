@@ -1,18 +1,38 @@
-var api = {}
+var mongoose = require("mongoose");
 
-api.lista = function(req, res) {
+module.exports = function (app) {
+  var api = {};
 
-    var orientadores = [
-    	{ _id: 1, nome: 'Paulinho José' }, 
-        { _id: 2, nome: 'Maurico Zuca' }, 
-        { _id: 3, nome: 'Osmar Ribeiro' },
-        { _id: 4, nome: 'Juca Chaves' }, 
-        { _id: 5, nome: 'Lucio Moura' }, 
-        { _id: 6, nome: 'Outros ou ainda não possuo(cite da descrição)' }
-    ];
+  var model = mongoose.model("Prof");
 
-    res.json(orientadores)
+  api.lista = function (req, res) {
+    
+    model.find().then(
+      function (orientadores) {
+        res.json(orientadores);
+      },
+      function (error) {
+        console.log(error);
+        res.sendStatus(500);
+      }
+    );
+  };
 
+//   api.buscaPorId = function (req, res) {
+//     model.findById(req.params.id).then(
+//       function (prof) {
+//         if (!prof) {
+//           res.sendStatus(404);
+//         }
+//         // if (!prof) throw new Error("prof não encontrada");
+//         res.json(prof);
+//       },
+//       function (error) {
+//         console.log(error);
+//         res.sendStatus(500);
+//       }
+//     );
+//   };
+
+  return api;
 };
-
-module.exports = api;

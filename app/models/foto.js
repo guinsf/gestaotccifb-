@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
-var schema = mongoose.Schema({
 
+var schema = mongoose.Schema({
+	
 	titulo: {
 		type: String,
 		required: true
@@ -31,11 +32,15 @@ var schema = mongoose.Schema({
 		required: true
 	},
 	orientador: {
-		type: Number,
+		type: String,
 		required: true
 	}
+	
+	// orientador: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Action' }]
 });
 
 mongoose.model('Foto', schema);
 
+
+// var Action = mongoose.model('Prof', schema);
 

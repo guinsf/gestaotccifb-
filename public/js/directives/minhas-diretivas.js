@@ -15,6 +15,23 @@ angular.module('minhasDiretivas', [])
 
 		return ddo;
 	})
+    .directive('pesqRel', function() {
+
+		var ddo = {};
+
+		ddo.restrict = "AE";
+        ddo.transclude = true;
+        ddo
+
+
+		ddo.scope = {
+            titulo: '@'
+        };
+
+        ddo.templateUrl = 'js/directives/pesq-rel.html';
+
+		return ddo;
+	})
     .directive('minhaFoto', function() {
 
         var ddo = {};

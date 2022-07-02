@@ -194,6 +194,17 @@
     
   }
 
+  .col-md-7 {
+  display: inline;
+  width: 45%;
+  float: right;
+ }
+
+ .col-md-6 {
+  display: inline;
+  width: 100%;
+  float: left;
+ }
   
   </style>
 
@@ -264,7 +275,9 @@
 <div class="page-header text-center">
 	<h1>{{foto.titulo}}</h1>
 </div>
-
+<div class="col-md-7">
+  <minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto >
+</div>
 <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
 
 <form novalidate name="formulario" class="row" ng-submit="submeter()">
@@ -347,11 +360,16 @@
 
 		<div class="form-group">
 			<label>Nome Orientador</label>
-			<select name="orientador" ng-model="foto.orientador" class="form-control" 
+			 <select name="orientador" ng-model="foto.orientador" class="form-control" 
 					required ng-controller="OrientadoresController" 
-					ng-options="orientador._id as (orientador.nome | uppercase) for orientador in orientadores">
+					ng-options="orientador._id as (orientador.titulo | uppercase) for orientador in orientadores">
 				<option value="">Escolha o nome do orientador</option>
-			</select>
+			</select> 
+      <!-- <select name="orientador" ng-model="foto.orientador" class="form-control" 
+					required ng-controller="OrientadoresController" 
+					ng-options="prof._id as (prof.titulo | uppercase) for prof in profs">
+				<option value="">Escolha o nome do orientador</option>
+			</select> -->
 			<span ng-show="formulario.$submitted && formulario.orientador.$error.required" 
 				class="form-control alert-danger">
 				Grupo obrigatório
@@ -364,15 +382,27 @@
 		<a href="/#/fotos" class="btn btn-primary">Voltar</a>
 		<hr>
 	</div>
-	<div class="col-md-6">
-		<minha-foto url="{{foto.url}}" titulo="{{foto.titulo}}"></minha-foto>
-	</div>
 </form>
+
 
 <footer style="margin-bottom: 250px;">
 	
-</footer>
 
-</body>          
-  
-</html>	
+	<footer class="bg-light text-dark">   
+		<div class="container-fluid py-3">
+		<div class="row">
+		
+     
+		<div class="text-center" style="padding: 0px;color:rgb(21, 59, 12); display: flex; flex-direction: column; align-items: center;" >
+		  <h5 style="margin-left: 15px; margin-top: 20px; margin-bottom: -5px; font-weight: 600;">SGATCC - Canais oficiais Instituto Federal de Brasília</h5>
+		  <ul class="nav">
+			<li class="nav-link" ><a href=https://www.facebook.com/IFBrasilia/ target="_blank" class="fab fa-facebook fa-3x "></a></li>
+			<li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank" class="fab fa-instagram fa-3x"></a></li>
+			<li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank" class="fab fa-twitter fa-3x"></a></li>
+			<li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank" class="fab fa-whatsapp fa-3x"></a></li>
+		  </ul>
+		  <h5 style="margin-left: 15px">&copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília</h5> 
+		</div>
+	  </footer>
+	  </body>          
+	  </html>
