@@ -4,8 +4,10 @@ Para conseguir executar o trabalho localmente na máquina, seguir os passos abai
 
 Possuir as tecnologias instaladas abaixo:
 
-Node versão 16.14.2 ou superior;
+*Node versão 16.14.2 ou superior;
+
 Angular 13.3.5 ou superior;
+
 Mongo DB versão 5.0.7 ou superior.
 
 Após a instalação das ferramentas acima, baixar o projeto, ir até a pasta via comando cmd e executar o comando npm install para instalar as dependências e posteriormente npm start para iniciar a aplicação.
