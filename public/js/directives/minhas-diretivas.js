@@ -25,7 +25,8 @@ angular.module('minhasDiretivas', [])
 
 
 		ddo.scope = {
-            titulo: '@'
+            titulo: '@',
+            orientador: '@'
         };
 
         ddo.templateUrl = 'js/directives/pesq-rel.html';

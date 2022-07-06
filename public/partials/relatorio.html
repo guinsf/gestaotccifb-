@@ -228,6 +228,7 @@
 </head>
 
 <body>
+  
   <div class="row">
     <div class="col-md-12">
       <form>
@@ -256,7 +257,7 @@
           </div>
           <div class="table-header-cell 3 text-center">
             Orientador
-            </div>
+          </div>
       </div>
       <div id="resp-table-body">
         <div class="table-header-cell">
@@ -276,11 +277,12 @@
             </pesq-rel>
             </div>
             <div class="table-header-cell">
-              <!-- <pesq-rel class="resp-table-header" ng-repeat="foto in fotos.orientador | filter: filtro" titulo="{{foto.titulo}}"> -->
-              <pesq-rel class="resp-table-header" ng-repeat="foto in fotos | filter: filtro orientador._id as orientador.titulo" titulo="{{foto.orientador}}"> 
-                             
+             <!--<pesq-rel class="resp-table-header" ng-repeat="prof in profs | filter: filtro" titulo="{{prof.titulo}}">
+              </pesq-rel>-->
+              <pesq-rel class="resp-table-header" ng-repeat="foto in fotos | filter: filtro" orientador="{{foto.orientador}}">
               </pesq-rel>
-              </div>
+
+            </div>
         </div>
       </div>
     </div>

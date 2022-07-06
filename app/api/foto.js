@@ -9,6 +9,9 @@ module.exports = function(app) {
 	api.lista = function(req, res) {
 	
 		model.find()
+		// .populate("orientador")
+		// .then(p=>console.log(p))
+		// .catch(error=>console.log(error));
 		.then(function(fotos) {
 			res.json(fotos);
 		}, function(error) {
