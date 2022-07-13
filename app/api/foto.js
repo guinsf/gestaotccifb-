@@ -5,20 +5,16 @@ module.exports = function(app) {
 	var api = {};
 
 	var model = mongoose.model('Foto');
+	var modelProf = mongoose.model('Prof')
 
 	api.lista = function(req, res) {
-	
-		model.find()
-		// .populate("orientador")
-		// .then(p=>console.log(p))
-		// .catch(error=>console.log(error));
+		model.find({})
 		.then(function(fotos) {
-			res.json(fotos);
+			res.json(fotos); 
 		}, function(error) {
 			console.log(error);
 			res.sendStatus(500);
 		});
-
 	};
 
 	api.buscaPorId = function(req, res) {
@@ -46,15 +42,20 @@ module.exports = function(app) {
 	};
 
 	api.adiciona = function(req, res) {
-
-		model.create(req.body)
-		.then(function(foto) {
-			res.json(foto);
-		}, function(error) {
-			console.log('não conseguiu');
-			console.log(error);
-			res.sendStatus(500);
-		});
+		const promise = async () =>{
+			const response = await modelProf.findById(req.body.orientador)
+			await model.create({
+				titulo: req.body.titulo,
+				nome: req.body.nome,
+				email: req.body.email,
+				telefone: req.body.telefone,
+				url: req.body.url,
+				descricao: req.body.descricao,
+				grupo: req.body.grupo,
+				orientador: response._doc,
+			})
+		}
+		promise()
 	};
 
 	api.atualiza = function(req, res) {

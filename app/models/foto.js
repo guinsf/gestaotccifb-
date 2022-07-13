@@ -32,15 +32,10 @@ var schema = mongoose.Schema({
 		required: true
 	},
 	orientador: {
-		type: String,
+		type: Object,
 		required: true
 	}
 	
-	// orientador: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Action' }]
 });
 
 mongoose.model('Foto', schema);
-
-
-// var Action = mongoose.model('Prof', schema);
-
