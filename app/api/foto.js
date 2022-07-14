@@ -46,16 +46,22 @@ module.exports = function (app) {
   api.adiciona = function (req, res) {
     const promise = async () => {
       const response = await modelProf.findById(req.body.orientador);
-      await model.create({
-        titulo: req.body.titulo,
-        nome: req.body.nome,
-        email: req.body.email,
-        telefone: req.body.telefone,
-        url: req.body.url,
-        descricao: req.body.descricao,
-        grupo: req.body.grupo,
-        orientador: response._doc,
-      });
+      try {
+        await model.create({
+          titulo: req.body.titulo,
+          nome: req.body.nome,
+          email: req.body.email,
+          telefone: req.body.telefone,
+          url: req.body.url,
+          descricao: req.body.descricao,
+          grupo: req.body.grupo,
+          orientador: response._doc,
+        });
+        res.sendStatus(200);
+      } catch (e) {
+        console.log(e);
+        res.sendStatus(500);
+      }
     };
     promise();
   };
@@ -63,16 +69,22 @@ module.exports = function (app) {
   api.atualiza = function (req, res) {
     const promise = async () => {
       const response = await modelProf.findById(req.body.orientador);
-      await model.findByIdAndUpdate(req.params.id, {
-        titulo: req.body.titulo,
-        nome: req.body.nome,
-        email: req.body.email,
-        telefone: req.body.telefone,
-        url: req.body.url,
-        descricao: req.body.descricao,
-        grupo: req.body.grupo,
-        orientador: response._doc,
-      });
+      try {
+        await model.findByIdAndUpdate(req.params.id, {
+          titulo: req.body.titulo,
+          nome: req.body.nome,
+          email: req.body.email,
+          telefone: req.body.telefone,
+          url: req.body.url,
+          descricao: req.body.descricao,
+          grupo: req.body.grupo,
+          orientador: response._doc,
+        });
+        res.sendStatus(200);
+      } catch (error) {
+        console.log(e);
+        res.sendStatus(500);
+      }
     };
     promise();
   };
