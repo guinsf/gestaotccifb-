@@ -68,6 +68,11 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
 			templateUrl: 'partials/relatorioExt.html',
 			controller: 'FotosController'
 		});
+
+		$routeProvider.when('/usuarios/new', {
+			templateUrl: 'partials/formNovoUsuario.html',
+			controller: 'UsuarioController'
+		});
 		
 		$routeProvider.otherwise({redirectTo: '/fotos'});
 

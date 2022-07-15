@@ -363,7 +363,7 @@
 			 <select name="orientador" ng-model="foto.orientador" class="form-control" 
 					required ng-controller="OrientadoresController" 
 					ng-options="orientador._id as (orientador.titulo | uppercase) for orientador in orientadores">
-				<option value="">{{(foto.orientador.titulo).toUpperCase()}}</option>
+				<option value="">{{foto.orientador.titulo ? (foto.orientador.titulo).toUpperCase() + ' (selecionado)': 'Escolha o nome do orientador'}}</option>
 			</select> 
       <!-- <select name="orientador" ng-model="foto.orientador" class="form-control" 
 					required ng-controller="OrientadoresController" 

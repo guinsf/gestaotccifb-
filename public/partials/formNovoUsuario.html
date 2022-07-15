@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+  <style>
+    .toolbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      background: rgb(30, 80, 39);
+      background: linear-gradient(81deg, rgba(30, 80, 39, 1) 5%, rgba(14, 190, 56, 1) 40%);
+      color: rgb(255, 255, 255);
+      font-weight: 600;
+
+
+
+    }
+
+    .toolbar img {
+      margin: 0 26px;
+      margin-left: 60px;
+    }
+
+    .toolbar #twitter-logo {
+      height: 40px;
+      margin: 0 8px;
+    }
+
+    .toolbar #youtube-logo {
+      height: 40px;
+      margin: 0 16px;
+    }
+
+    .toolbar #twitter-logo:hover,
+    .toolbar #youtube-logo:hover {
+      opacity: 0.8;
+    }
+
+    .cabeçalho_menu {
+      display: flex;
+      gap: 25px;
+      margin: 0 320px;
+      text-decoration: none;
+      margin-right: 60px;
+    }
+
+    .cabeçalho_menu_item {
+      font-weight: 400;
+      font-size: 16px;
+      color: aliceblue;
+      text-decoration: none;
+      font-weight: 600;
+      align-self: flex-end;
+    }
+
+    .cabeçalho_menu_item:hover {
+      color: rgb(22, 18, 18);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .cabeçalho_menu_item_home {
+      margin-left: 30px;
+      align-self: center;
+
+    }
+
+    .cabeçalho_menu_item_exit {
+      align-self: center;
+      margin-left: -15px;
+    }
+
+    .cabeçalho_menu_item_home:hover {
+      border-radius: 10%;
+      background: linear-gradient(-80deg, rgba(30, 80, 39, 1) 5%, rgba(14, 190, 56, 1) 80%);
+
+    }
+
+    .cabeçalho_menu_item_exit:hover {
+      border-radius: 10%;
+
+      background: linear-gradient(-40deg, rgba(30, 80, 39, 1) 5%, rgba(14, 190, 56, 1) 80%);
+
+    }
+
+
+
+    .cabeçalho_menu_item_home:hover {}
+
+    .cabeçalho_menu_item_exit:hover {}
+
+    #check {
+      display: none;
+    }
+
+    #icone {
+      visibility: hidden;
+    }
+
+    .navbar {
+      margin-top: 80px;
+    }
+
+    .logoIfb {
+
+      border-radius: 2px;
+      width: 75px;
+    }
+
+    .input-group {
+      margin-top: 50px;
+      margin-bottom: 20px;
+      margin-left: 200px;
+      padding: 50px;
+      max-width: 700px;
+    }
+
+    .btn-primary:hover {
+      /*background-color: rgb(8, 104, 32);*/
+      background: linear-gradient(81deg, rgba(30, 80, 39, 1) 35%, rgba(14, 190, 56, 1) 100%);
+
+    }
+
+    .container-fluid {}
+
+    .btn-primary {
+      background-color: green;
+    }
+
+    .fa-facebook {
+      color: rgb(5, 85, 5);
+    }
+
+    .fa-instagram {
+      color: rgb(5, 85, 5);
+    }
+
+    .fa-twitter {
+      color: rgb(5, 85, 5);
+    }
+
+    .fa-whatsapp {
+      color: rgb(5, 85, 5);
+    }
+
+    .fa-facebook:hover {
+      color: rgb(9, 110, 40);
+    }
+
+    .fa-instagram:hover {
+      color: rgb(9, 110, 40);
+    }
+
+    .fa-twitter:hover {
+      color: rgb(9, 110, 40);
+    }
+
+    .fa-whatsapp:hover {
+      color: rgb(9, 110, 40);
+    }
+
+
+    .row {}
+
+    .col-4 {}
+
+    .col-md-2 {}
+
+    .painel-animado {}
+
+    .btn-block {}
+
+    .col-md-7 {
+      display: inline;
+      width: 45%;
+      float: right;
+    }
+
+    .col-md-6 {
+      display: inline;
+      width: 100%;
+      float: left;
+    }
+  </style>
+
+  <!-- Toolbar -->
+  <div class="toolbar" role="banner">
+    <img class="logoIfb"
+      src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Instituto_Federal_de_Bras%C3%ADlia_-_Marca_Vertical_2015.svg"
+      alt="LogoIfb" />
+    <div class="spacer"></div>
+    <input type="checkbox" id="check">
+    <label for="check" id="icone"><img src="https://i.imgur.com/RWHvwPE.png" /></label>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+      aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+
+  <p ng-show="mensagem.length" class="alert alert-info">{{mensagem}}</p>
+  
+  <div class="col-md-7"></div>
+
+  <form novalidate name="formulario" class="row" ng-submit="novoUsuario()">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Usuário</label>
+        <input name="login" class="form-control" ng-model="usuario.login" required>
+        <div class="form-group">
+          <label>Senha</label>
+          <input name="senha" class="form-control" ng-model="usuario.senha" required>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Salvar
+        </button>
+        <a href="/#/login" class="btn btn-primary">Voltar</a>
+        <hr>
+      </div>
+  </form>
+
+  <footer style="margin-bottom: 250px;">
+    <footer class="bg-light text-dark">
+      <div class="container-fluid py-3">
+        <div class="row">
+          <div class="text-center"
+            style="padding: 0px;color:rgb(21, 59, 12); display: flex; flex-direction: column; align-items: center;">
+            <h5 style="margin-left: 15px; margin-top: 20px; margin-bottom: -5px; font-weight: 600;">SGATCC - Canais
+              oficiais Instituto Federal de Brasília</h5>
+            <ul class="nav">
+              <li class="nav-link"><a href=https://www.facebook.com/IFBrasilia/ target="_blank"
+                  class="fab fa-facebook fa-3x "></a></li>
+              <li class="nav-link"><a href=https://www.instagram.com/ifbrasilia/ target="_blank"
+                  class="fab fa-instagram fa-3x"></a></li>
+              <li class="nav-link"><a href=https://mobile.twitter.com/ifbnoticias target="_blank"
+                  class="fab fa-twitter fa-3x"></a></li>
+              <li class="nav-link"><a href=https://www.ifb.edu.br/contato target="_blank"
+                  class="fab fa-whatsapp fa-3x"></a></li>
+            </ul>
+            <h5 style="margin-left: 15px">&copy 2022 Copyright:Projeto Alunos Instituto Federal de Brasília</h5>
+          </div>
+    </footer>
+    </body>
+
+</html>
