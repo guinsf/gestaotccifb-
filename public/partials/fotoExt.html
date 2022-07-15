@@ -188,7 +188,7 @@ float: left;
 			<select name="orientador" ng-model="foto.orientador" class="form-control" 
 					required ng-controller="OrientadoresController" 
 					ng-options="orientador._id as (orientador.nome | uppercase) for orientador in orientadores" disabled>
-				<option value="">Escolha o nome do orientador</option>
+				<option value="">{{(foto.orientador.titulo).toUpperCase()}}</option>
 			</select>
 			<span ng-show="formulario.$submitted && formulario.orientador.$error.required" 
 				class="form-control alert-danger">
