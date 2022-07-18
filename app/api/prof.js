@@ -24,7 +24,6 @@ module.exports = function (app) {
         if (!prof) {
           res.sendStatus(404);
         }
-        // if (!prof) throw new Error("prof não encontrada");
         res.json(prof);
       },
       function (error) {
