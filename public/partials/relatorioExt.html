@@ -193,15 +193,16 @@
       <input type="checkbox" id="check">
       <label for="check" id="icone"><img src="https://i.imgur.com/RWHvwPE.png"/></label>
       <nav class="cabeçalho_menu">
-        <a class="cabeçalho_menu_item" href="/#/login">Área Login</a>
-        <a class="cabeçalho_menu_item" href="/#/principalExt" >Alunos</a>
-        <a class="cabeçalho_menu_item" href="/#/profext">Professores</a>
-        <a class="cabeçalho_menu_item" href="/#/relatorioext">Relatórios</a>
+        <a class="cabeçalho_menu_item" href="/#/principal">Área cadastro de Alunos</a>
+        <a class="cabeçalho_menu_item" href="/#/principal" >Alunos</a>
+        <a class="cabeçalho_menu_item" href="/#/profs">Professores</a>
+        <a class="cabeçalho_menu_item" href="/#/relatorioTCC">Relatórios</a>
   
-        <a class="cabeçalho_menu_item_home" href="/#/principalExt"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="38px" height="35px"><path d="M12,2.1L1,12h3v9h7v-6h2v6h7v-9h3L12,2.1z M18,19h-3v-6H9v6H6v-8.8l6-5.4l6,5.4V19z"/></svg></a>
+        <a class="cabeçalho_menu_item_home" href="/#/principal"><svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" width="38px" height="35px"><path d="M12,2.1L1,12h3v9h7v-6h2v6h7v-9h3L12,2.1z M18,19h-3v-6H9v6H6v-8.8l6-5.4l6,5.4V19z"/></svg></a>
         <a class="item_exit" href="/#/login"></a>
   
-        
+        <a class="cabeçalho_menu_item_exit" href="/#/login"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 256 256" xml:space="preserve">
+          <desc>Created with Fabric.js 1.7.22</desc>
           <defs>
           </defs>
           <g transform="translate(128 128) scale(0.72 0.72)" style="">
@@ -227,7 +228,7 @@
 </head>
 
 <body>
-  <!--<h3 style="text-align: center">Exibir todas ideias TCCs</h3>-->
+  
   <div class="row">
     <div class="col-md-12">
       <form>
@@ -249,10 +250,7 @@
           Nome Aluno
           </div>
           <div class="table-header-cell 2 text-center">
-          E-mail
-          </div>
-          <div class="table-header-cell 3 text-center">
-          Telefone
+          E-mail Orientador
           </div>
           <div class="table-header-cell 3 text-center">
             Orientador
@@ -268,17 +266,11 @@
           </pesq-rel>
           </div>
         <div class="table-header-cell">
-          <pesq-rel class="resp-table-header" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.email}} ">
+          <pesq-rel class="resp-table-header" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.orientador.email}}">
           </pesq-rel>
           </div>
-          <div class="table-header-cell">
-            <pesq-rel class="resp-table-header" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.telefone}}">
-            </pesq-rel>
-            </div>
             <div class="table-header-cell">
-            <!--<pesq-rel class="resp-table-header" ng-repeat="prof in profs | filter: filtro" titulo="{{prof.titulo.orientador}}">
-              </pesq-rel>-->
-              <pesq-rel class="resp-table-header" ng-repeat="foto in fotos | filter: filtro" orientador="{{foto.orientador}}">
+              <pesq-rel class="resp-table-header" ng-repeat="foto in fotos | filter: filtro" orientador="{{foto.orientador.titulo}}">
               </pesq-rel>
 
             </div>
@@ -292,6 +284,7 @@
   <div class="row">
  
   </div>
+
 
   </div>
   <div class="text-center" style="padding: 0px;color:rgb(21, 59, 12); display: flex; flex-direction: column; align-items: center;" >
