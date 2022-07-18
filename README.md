@@ -14,18 +14,14 @@ Após a instalação das ferramentas acima, baixar o projeto, ir até a pasta vi
 
 Após receber as mensagens Servidor iniciado e Conectado ao MongoDB, abrir a aplicação localmente na porta: http://localhost:3000/
 
-As credenciais para acesso ao login são:
+Caso ainda não possua credenciais salvas no banco, executar os seguintes comandos via cmd:
 
-usuário:g.ui_@hotmail.com
+Mongo
+db.usuarios.insert({login: 'usuario', senha: 'senha'});
 
-senha: 123
+Inserir os nomes de usuário e senha dentro das aspas simples.
 
-
-ou 
-
-usuário:guilherme
-
-senha:1234
+Feito isso basta logar no sistema e ter acesso normalmente.
 
 
 Após o login será possível ter o acesso a área logada e funcionalidades internas. 
