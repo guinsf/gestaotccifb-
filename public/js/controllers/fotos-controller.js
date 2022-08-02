@@ -9,7 +9,7 @@ angular.module('alurapic').controller('FotosController', function($scope, recurs
 	}, function(erro) {
 		console.log(erro);
 	});
-
+/*Removendo informações de trabalhos cadastrados pelo controller e sinalizando mensagem de erro caso ocorra*/
 	$scope.remover = function(foto) {
 
 		recursoFoto.delete({fotoId: foto._id}, function() {
