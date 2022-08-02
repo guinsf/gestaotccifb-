@@ -12,7 +12,7 @@ angular.module('alurapic')
 				$scope.mensagem = 'Não foi possível obter o usuário'
 			});
 		}
-
+/*Cadastrando informações de novos usuários e sinalizando mensagem de erro caso ocorra*/
 		$scope.novoUsuario = function() {
 				cadastroDeUsuarios.cadastrar($scope.usuario)
 				.then(function(dados) {
