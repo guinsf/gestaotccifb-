@@ -1,7 +1,8 @@
 angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos'])
 	.config(function($routeProvider, $locationProvider, $httpProvider) {
 
-
+/*Rotas do angular para quando a url do site for selecionada, o tramplate url seja selecionado buscando o 
+respectivo controller responsável*/
 		$httpProvider.interceptors.push('tokenInterceptor');
 		
 		$routeProvider.when('/fotos', {
