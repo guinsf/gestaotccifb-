@@ -3,7 +3,7 @@ angular.module('alurapic')
 
 		$scope.foto = {};
 		$scope.mensagem = '';
-
+/*Obtendo informações de trabalhos cadastrados pelo controller e sinalizando mensagem de erro caso ocorra*/
 		if($routeParams.fotoId) {
 			recursoFoto.get({fotoId: $routeParams.fotoId}, function(foto) {
 				$scope.foto = foto; 
@@ -12,7 +12,7 @@ angular.module('alurapic')
 				$scope.mensagem = 'Não foi possível obter o TCC'
 			});
 		}
-
+/*Incluindo informações de trabalhos cadastrados pelo controller e sinalizando mensagem de erro caso ocorra*/
 		$scope.submeter = function() {
 			if ($scope.formulario.$valid) {
 				cadastroDeFotos.cadastrar($scope.foto)
