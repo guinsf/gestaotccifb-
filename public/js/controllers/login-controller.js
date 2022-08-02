@@ -4,7 +4,7 @@ angular.module('alurapic').controller('LoginController', function($scope, $http,
     $scope.mensagem = '';
 
     $scope.autenticar = function() {
-
+/*Autênticando login e senha de usuários cadastrados e sinalizando mensagem de erro caso ocorra*/
         var usuario = $scope.usuario;
 
         $http.post('/autenticar', {login: usuario.login, senha: usuario.senha})
