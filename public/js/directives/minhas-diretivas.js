@@ -1,3 +1,5 @@
+/*Diretivas para funcionalidades do Angular*/ 
+
 angular.module('minhasDiretivas', [])
 	.directive('meuPainel', function() {
 
@@ -15,6 +17,7 @@ angular.module('minhasDiretivas', [])
 
 		return ddo;
 	})
+    /*Realizar as pesquisas no site*/
     .directive('pesqRel', function() {
 
 		var ddo = {};
@@ -33,6 +36,7 @@ angular.module('minhasDiretivas', [])
 
 		return ddo;
 	})
+    /*Exibir as fotos cadastradas convertendo de url para foto*/
     .directive('minhaFoto', function() {
 
         var ddo = {};
@@ -48,6 +52,7 @@ angular.module('minhasDiretivas', [])
         
         return ddo;
     })
+      /*Exibindo botão de alerda*/
     .directive('meuBotaoPerigo', function() {
         var ddo = {};
         ddo.restrict = "E";
@@ -59,6 +64,7 @@ angular.module('minhasDiretivas', [])
 
         return ddo;
     })
+      /*Realizando pesquisa dentro dos relatórios*/
     .directive('meuRelatorios', function() {
 
         var ddo = {};
