@@ -1,5 +1,5 @@
 module.exports = function(uri) {
-
+/*Mensagens no log informando conexão, erro e desconexão no banco de dados */
 	var mongoose = require('mongoose');
 
 	mongoose.connect(uri);
