@@ -3,7 +3,7 @@ angular.module('alurapic')
 
 		$scope.prof = {};
 		$scope.mensagem = '';
-
+/*Obtendo informações de professores cadastrados pelo controller e sinalizando mensagem de erro caso ocorra*/
 		if($routeParams.profId) {
 			recursoProf.get({profId: $routeParams.profId}, function(prof) {
 				$scope.prof = prof; 
@@ -12,7 +12,7 @@ angular.module('alurapic')
 				$scope.mensagem = 'Não foi possível obter o TCC'
 			});
 		}
-
+/*Incluindo informações de professores cadastrados pelo controller e sinalizando mensagem de erro caso ocorra*/
 		$scope.submeter = function() {
 			if ($scope.formulario.$valid) {
 				cadastroDeProfs.cadastrar($scope.prof)
