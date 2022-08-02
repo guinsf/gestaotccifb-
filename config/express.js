@@ -1,3 +1,4 @@
+/*Rotas do express para conexão nas pastar api, app e models */
 var express = require('express');
 var consign = require('consign');
 var bodyParser = require('body-parser');
