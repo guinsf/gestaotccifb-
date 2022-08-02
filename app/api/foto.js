@@ -5,7 +5,7 @@ module.exports = function (app) {
 
   var model = mongoose.model("Foto");
   var modelProf = mongoose.model("Prof");
-
+  /*Listando alunos cadastrados */
   api.lista = function (req, res) {
     model.find({}).then(
       function (fotos) {
@@ -17,7 +17,7 @@ module.exports = function (app) {
       }
     );
   };
-
+/*Realizando a busca de alunos cadastrados por id */
   api.buscaPorId = function (req, res) {
     model.findById(req.params.id).then(
       function (foto) {
@@ -30,7 +30,7 @@ module.exports = function (app) {
       }
     );
   };
-
+/*Removendo alunos cadastrados por id */
   api.removePorId = function (req, res) {
     model.remove({ _id: req.params.id }).then(
       function () {
@@ -42,7 +42,7 @@ module.exports = function (app) {
       }
     );
   };
-
+/*Adicionando todas infos de alunos cadastrados por id */
   api.adiciona = function (req, res) {
     const promise = async () => {
       const response = await modelProf.findById(req.body.orientador);
@@ -65,7 +65,7 @@ module.exports = function (app) {
     };
     promise();
   };
-
+/*Atualizando todas infos de alunos cadastrados por id */
   api.atualiza = function (req, res) {
     const promise = async () => {
       const response = await modelProf.findById(req.body.orientador);
