@@ -1,3 +1,4 @@
+/*Angular verifica se as funções retornam informações cadastras com mensagem de sucesso ou de erro na aplicação*/
 angular
   .module("meusServicos", ["ngResource"])
   .factory("recursoFoto", function ($resource) {
