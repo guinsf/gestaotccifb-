@@ -4,7 +4,9 @@ var jwt  = require('jsonwebtoken');
 module.exports = function(app) {
 
      var api = {};
-     var model = mongoose.model('Usuario'); <!-- Autênticando login e senha do usuário -->
+     var model = mongoose.model('Usuario'); 
+     
+      /*Autênticando login e senha do usuário */
 
      api.autentica = function(req, res) {
 
@@ -31,7 +33,7 @@ module.exports = function(app) {
     api.verificaToken = function(req, res, next) {
 
          var token = req.headers['x-access-token'];
-<!-- Mensagem de sucesso ou falha caso a autentificação tenha ocorrido com sucesso ou não -->
+  /*Mensagem de sucesso ou falha caso a autentificação tenha ocorrido com sucesso ou não */
          if (token) {
              console.log('Token recebido, decodificando');
              jwt.verify(token, app.get('secret'), function(err, decoded) {
