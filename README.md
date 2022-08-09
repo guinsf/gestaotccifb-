@@ -1,6 +1,6 @@
 # gestaotccifb-
 
-Para conseguir executar o trabalho localmente na máquina, seguir os passos a seguir.
+Para conseguir executar o trabalho localmente na máquina, seguir os passos.
 
 Possuir as tecnologias instaladas abaixo:
 
